@@ -7,10 +7,9 @@ jobs:
    name: Lint code base
    runs-on: ubuntu-latest
    steps:
-      - name: Checkout code
-        #uses: actions/checkout@v1
-       - name: Run Super-Linter
-         uses: guthub/super-linter@v3
+          - name: Get default branch from origin
+            id: get-origin-default-branch
+            uses: pipeline-foundation/get-origin-def-branch@v1.0.0
          env:
             DEFAULT_BRANCH: main
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
